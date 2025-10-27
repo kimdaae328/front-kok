@@ -1,6 +1,6 @@
 <h1>콕(KOK) | 빈 자리에 콕, 채우는 가능성</h1>
-<img width="100%" height="auto" alt="" src="https://github.com/user-attachments/assets/bb4e1335-716f-4b0d-8008-68916019e160" />
-    <h2>1. 프로젝트 소개</h2>
+<img width="100%" height="auto" alt="메인" src="https://github.com/user-attachments/assets/46eea327-669b-48f3-ad63-c39d2c916388" />
+  <h2>1. 프로젝트 소개</h2>
     <p>휴가나 공백으로 발생한 자리에서,
     단순한 대체 인력이 아닌 청년에게 실제 업무 환경을 경험할 수 있는 기회를 제공하는 서비스이다.
     경험을 중심으로 한 성장의 순환을 지향하며,
@@ -218,10 +218,10 @@
         </li>
     </ul>
     <div>
-      <img width="100%" height="wuto" alt="프론트 백엔드 진행률" src="https://github.com/user-attachments/assets/aafe8f75-c2c2-49af-a3a1-684bce05e791" />
+      <img width="100%" height="auto" alt="프론트 백엔드 진행률" src="https://github.com/user-attachments/assets/aafe8f75-c2c2-49af-a3a1-684bce05e791" />
     </div>
     <h2>트러블 슈팅</h2>
-    <h3>insert, update 소통 부</h3>
+    <h3>insert, update 소통 부재로 인한 오류</h3>
     <p>문제 없이 정상 동작하던 기능에서 갑자기 에러가 발생해 당황스러웠다. <br/>
         기업 프로필 수정 화면에서 업종과 기업 규모를 선택하고 저장하면 DB의 기존 값을 갱신(UPDATE)하는 구조였고, 관련된 updateCompanySector() 메서드 역시 정상적으로 존재했다. <br/>
         그런데 실행 시 “updateCompanySector를 찾을 수 없다” 라는 이해하기 어려운 오류가 발생했다. 메서드는 분명히 잘 있는데 왜 못 찾는다는 걸까? 추적 과정에서 알게 된 진짜 원인은 팀원과의 작업 충돌이었다.<br/>
