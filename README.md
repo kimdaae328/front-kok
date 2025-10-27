@@ -221,6 +221,30 @@
       <img width="100%" height="wuto" alt="프론트 백엔드 진행률" src="https://github.com/user-attachments/assets/aafe8f75-c2c2-49af-a3a1-684bce05e791" />
     </div>
     <h2>트러블 슈팅</h2>
+    <h3>insert, update 소통 부</h3>
+    <p>문제 없이 정상 동작하던 기능에서 갑자기 에러가 발생해 당황스러웠다. <br/>
+        기업 프로필 수정 화면에서 업종과 기업 규모를 선택하고 저장하면 DB의 기존 값을 갱신(UPDATE)하는 구조였고, 관련된 updateCompanySector() 메서드 역시 정상적으로 존재했다. <br/>
+        그런데 실행 시 “updateCompanySector를 찾을 수 없다” 라는 이해하기 어려운 오류가 발생했다. 메서드는 분명히 잘 있는데 왜 못 찾는다는 걸까? 추적 과정에서 알게 된 진짜 원인은 팀원과의 작업 충돌이었다.<br/>
+        다른 팀원이 회원가입 시 기본 업종/규모 값이 자동으로 INSERT되도록 수정해두었고, 이로 인해 기업 프로필 수정 단계에서 DB에 이미 값이 존재하는데 또다시 INSERT가 일어나며 제약조건 충돌이 발생한 것이었다. 즉, “없는 값을 수정한다”는 전제를 둔 기존 로직이 “이미 값이 존재하는 상황”과 맞지
+        않게 된 것이다.</p>
+    <div>
+        <img width="100%" height="auto" alt="3 insert문제-소통의부재" src="https://github.com/user-attachments/assets/3dd4ec09-d70d-4af0-88bb-e3f7763f2ccd" />
+        <img width="1288" height="632" alt="3 insert문제-소통의부재2" src="https://github.com/user-attachments/assets/4e8fa94a-b699-49af-b189-3c8305d11efd" />
+        <img width="1576" height="709" alt="3 insert문제-소통의부재3" src="https://github.com/user-attachments/assets/4b788c8a-9ee2-43cb-892d-1437766903f7" />
+    </div>
+    <strong>해결방법</strong>
+    <p>에러 메시지만 보면 updateCompanySector() 메서드에서 문제가 발생한 것처럼 보여서 해당 부분을 집중적으로 확인했지만, 원인을 쉽게 찾기 어려웠다.<br/>
+그래서 관점을 바꿔, 데이터가 흐르는 전 과정을 처음부터 다시 추적해보기로 했다.<br/><br/>
+그 과정에서 기업 가입 시 기본 업종과 기업 규모를 자동으로 INSERT하는 로직이 팀원에 의해 추가되었다는 사실을 확인했다.
+기존에는 값이 없는 상태에서 INSERT만 하면 되었지만, 이제는 기본값이 이미 존재하기 때문에 INSERT 대신 UPDATE로 처리해야 했다.<br/><br/>
+해당 부분을 UPDATE로 수정한 뒤에는 에러 없이 정상적으로 작동하는 것을 확인할 수 있었다.
+이후 확인해보니 이 변경 사항은 슬랙에 공유되어 있었고, 내가 그 내용을 놓쳐서 생긴 문제였다.<br/><br/>
+이 경험을 통해
+단순히 기술적인 실수가 아닌, 협업 과정의 작은 소통 누락도 큰 문제를 만들 수 있다는 점을 깨달았다.
+또한 데이터가 어떤 흐름과 방식으로 생성되고 변경되는지 처음부터 끝까지 이해하는 것이 얼마나 중요한지 직접 느낀 사례였다.</p>
+<div>
+    <img width="1534" height="784" alt="3 insert문제-소통의부재-문제해결" src="https://github.com/user-attachments/assets/7ff711c4-ed72-4463-bfae-0db0096c5f4a" />
+</div>
     <h3>companyId를 노출문제</h3>
     <strong>문제 상황</strong>
     <p>기존에는 쿼리스트링으로 작업하면서 기업 아이디가 노출되는 보안 문제가 발생했다.</p>
