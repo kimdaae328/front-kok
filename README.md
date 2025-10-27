@@ -16,7 +16,7 @@
         <li>팀원3 : 성윤미 - 관리자</li>
     </ul>
     <h2>4. 기획 배경</h2>
-    <img width="1280" height="720" alt="슬라이드2" src="https://github.com/user-attachments/assets/ec93a5f6-7a49-4b0b-81b2-b59014158b7e" />
+<img width="1280" height="720" alt="슬라이드2" src="https://github.com/user-attachments/assets/3ea201b8-3b9e-43d1-944f-2f9aeadef5a7" />
     <p>많은 청년들이 취업을 준비하면서도 실제 업무 환경을 경험할 기회가 부족하다.
     이로 인해 경력보다 경험이 중요한 시대에 ‘준비된 인재’로 성장하기 어렵다는 한계가 존재한다.
     KOK는 이러한 문제의식에서 출발했다.
