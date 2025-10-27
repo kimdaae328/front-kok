@@ -16,7 +16,7 @@
         <li>팀원3 : 성윤미 - 관리자</li>
     </ul>
     <h2>4. 기획 배경</h2>
-    <img width="100%" height="auto" alt="슬라이드2" src="https://github.com/user-attachments/assets/e4afe600-98c9-425c-9553-505cac0af906" />
+    <img width="1280" height="720" alt="슬라이드2" src="https://github.com/user-attachments/assets/ec93a5f6-7a49-4b0b-81b2-b59014158b7e" />
     <p>많은 청년들이 취업을 준비하면서도 실제 업무 환경을 경험할 기회가 부족하다.
     이로 인해 경력보다 경험이 중요한 시대에 ‘준비된 인재’로 성장하기 어렵다는 한계가 존재한다.
     KOK는 이러한 문제의식에서 출발했다.
@@ -27,7 +27,7 @@
     기업은 그 과정을 통해 브랜딩과 인재 발굴 효과를 함께 얻는다.
     KOK는 청년에게는 경험의 기회, 기업에게는 브랜드의 기회, 그리고 사회에는 연결의 가치를 만들어가는 플랫폼이다.</p>
     <h2>5. 기대효과</h2>
-    <img width="100%" height="auto" alt="슬라이드4" src="https://github.com/user-attachments/assets/31d426bf-d654-4999-a622-db0b3fc5a447" />
+    <img width="1280" height="720" alt="슬라이드4" src="https://github.com/user-attachments/assets/a647b4d3-cfb7-4a85-9c57-1c42d991c067" />
     <strong>청년에게 새로운 직무 체험 기회를 제공</strong>
     <ul>
         <li>실제 기업의 업무 환경을 직접 경험하며, 자신에게 맞는 직무나 산업을 탐색할 수 있다.</li>
