@@ -274,7 +274,6 @@
     <div><img width="100%" height="auto" alt="공고등록, 수정 부분 리팩토링 문제" src="https://github.com/user-attachments/assets/9528bb1f-b384-44af-860b-80d7e7910dd5" /></div>
     <br/>
     <h3>느낀점</h3>
-    <p>처음엔 기능 하나씩 완성하는 데 집중했지만, 점점 Controller → Service → DAO → Mapper까지의 전체 플로우를 하나로 보는 시야가 생겼다. '이 데이터가 어디서 오고, 어디로 흘러가며, 어떤 타이밍에 상태가 바뀌는가'를 고민하면서 코드가 훨씬 안정적이 되었다.</p>
     <p>AWS S3 업로드, Bootpay 결제 연동, Redis 캐싱, 스케줄러 자동 상태 변경 등
 단순한 CRUD를 넘어서 “실제 운영 중인 서비스가 어떻게 돌아가는지”를 직접 체감했다.
 특히 캐시 적용 후 데이터 수정 시 캐시 무효화(@CacheEvict)의 중요성을 이해했고,
