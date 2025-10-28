@@ -1,5 +1,5 @@
 <h1>콕(KOK) | 빈 자리에 콕, 채우는 가능성</h1>
-<img width="100%" height="auto" alt="메인" src="https://github.com/user-attachments/assets/46eea327-669b-48f3-ad63-c39d2c916388" />
+<img width="1280" height="720" alt="슬라이드메인" src="https://github.com/user-attachments/assets/792e1f6c-ff5d-47e9-a301-cf6aaa0c1d32" />
   <h2>1. 프로젝트 소개</h2>
     <p>휴가나 공백으로 발생한 자리에서,
     단순한 대체 인력이 아닌 청년에게 실제 업무 환경을 경험할 수 있는 기회를 제공하는 서비스이다.
