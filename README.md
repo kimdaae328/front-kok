@@ -223,21 +223,34 @@
       <img width="100%" height="auto" alt="프론트 백엔드 진행률" src="https://github.com/user-attachments/assets/aafe8f75-c2c2-49af-a3a1-684bce05e791" />
     </div>
     <h2>트러블 슈팅</h2>
+    <h3>필수값 누락으로 DB 삽입 실패</h3>
+    <strong>문제 상황</strong>
+    <p>체험 공고 등록 기능을 구현하는 과정에서, 직군 선택을 하지 않은 상태로 등록 버튼을 누르면 데이터베이스에 insert가 실패하는 문제가 발생했다. 오류 로그를 확인해보니 job_category 값이 0으로 들어가면서 문제가 생기고 있었다.<br/> 문제의 원인은 직군 선택 기능이 기본 <select> 태그가 아니라 커스텀 UI로 구현되어 있었다는 점이었다. 화면에서는 직군명이 바뀌기 때문에 사용자가 선택한 것처럼 보였지만, 실제 서버로 전송되는 값은 비어있는 상태로 submit 되었고, 결국 DB에서 존재하지 않는 값으로 간주되어 오류가 발생했다.</p>
+  <div>
+    <img width="100%" height="auto" alt="5 값전달오류문제점" src="https://github.com/user-attachments/assets/33601c36-0d42-4e74-904e-5c625ee39d8c" />
+    <img width="100%" height="auto" alt="5 값전달오류문제점2" src="https://github.com/user-attachments/assets/b220a128-153a-4f44-9002-c4516e9df5bd" />
+  </div>
+    <strong>해결방법</strong>
+    <p>문제를 해결하기 위해 드롭다운에서 직군을 클릭하는 순간, 해당 ID 값을 hidden input에 직접 넣어주도록 자바스크립트를 수정했다. 또한 폼 제출 직전에 직군 선택 값이 유효한지 다시 검증하는 로직을 추가하여, 값이 없는 상태에서는 제출 자체가 되지 않도록 방어 로직을 구성했다.</p>
+    <p>이 과정을 통해, 커스텀 UI를 사용할 때는 단순히 화면에 보이는 값만 신경 쓰는 것이 아니라, 실제 서버로 어떤 데이터가 전송되는지를 반드시 확인해야 한다는 점을 다시 한 번 깨달을 수 있었다. 프론트와 백엔드 모두에서 검증을 확실하게 해두어야 안정적인 시스템을 만들 수 있다는 좋은 경험이 되었다.</p>
+    <div>
+      <img width="100%" height="auto" alt="5 값전달오류문제해결" src="https://github.com/user-attachments/assets/9b22daa0-3124-4cde-af6f-3581238eae16" />
+      <img width="100%" height="auto" alt="5 값전달오류문제해결2" src="https://github.com/user-attachments/assets/b4451cc2-5de0-4879-854a-9e083f7d0245" />
+    </div>
     <h3>insert, update 소통 부재로 인한 오류</h3>
-    <p>문제 없이 정상 동작하던 기능에서 갑자기 에러가 발생해 당황스러웠다. <br/>
-        기업 프로필 수정 화면에서 업종과 기업 규모를 선택하고 저장하면 DB의 기존 값을 갱신(UPDATE)하는 구조였고, 관련된 updateCompanySector() 메서드 역시 정상적으로 존재했다. <br/>
+    <strong>문제 상황</strong>
+    <p>문제 없이 정상 동작하던 기능에서 갑자기 에러가 발생해 당황스러웠다. <br/>기업 프로필 수정 화면에서 업종과 기업 규모를 선택하고 저장하면 DB의 기존 값을 갱신(UPDATE)하는 구조였고, 관련된 updateCompanySector() 메서드 역시 정상적으로 존재했다. <br/>
         그런데 실행 시 “updateCompanySector를 찾을 수 없다” 라는 이해하기 어려운 오류가 발생했다. 메서드는 분명히 잘 있는데 왜 못 찾는다는 걸까? 추적 과정에서 알게 된 진짜 원인은 팀원과의 작업 충돌이었다.<br/>
         다른 팀원이 회원가입 시 기본 업종/규모 값이 자동으로 INSERT되도록 수정해두었고, 이로 인해 기업 프로필 수정 단계에서 DB에 이미 값이 존재하는데 또다시 INSERT가 일어나며 제약조건 충돌이 발생한 것이었다. 즉, “없는 값을 수정한다”는 전제를 둔 기존 로직이 “이미 값이 존재하는 상황”과 맞지
         않게 된 것이다.</p>
     <div>
         <img width="100%" height="auto" alt="3 insert문제-소통의부재" src="https://github.com/user-attachments/assets/3dd4ec09-d70d-4af0-88bb-e3f7763f2ccd" />
-        <img width="1288" height="632" alt="3 insert문제-소통의부재2" src="https://github.com/user-attachments/assets/4e8fa94a-b699-49af-b189-3c8305d11efd" />
-        <img width="1576" height="709" alt="3 insert문제-소통의부재3" src="https://github.com/user-attachments/assets/4b788c8a-9ee2-43cb-892d-1437766903f7" />
+        <img width="100%" height="auto" alt="3 insert문제-소통의부재2" src="https://github.com/user-attachments/assets/4e8fa94a-b699-49af-b189-3c8305d11efd" />
+        <img width="100%" height="auto" alt="3 insert문제-소통의부재3" src="https://github.com/user-attachments/assets/4b788c8a-9ee2-43cb-892d-1437766903f7" />
     </div>
     <br/>
     <strong>해결방법</strong>
-    <p>에러 메시지만 보면 updateCompanySector() 메서드에서 문제가 발생한 것처럼 보여서 해당 부분을 집중적으로 확인했지만, 원인을 쉽게 찾기 어려웠다.<br/>
-그래서 관점을 바꿔, 데이터가 흐르는 전 과정을 처음부터 다시 추적해보기로 했다.<br/><br/>
+    <p>에러 메시지만 보면 updateCompanySector() 메서드에서 문제가 발생한 것처럼 보여서 해당 부분을 집중적으로 확인했지만, 원인을 쉽게 찾기 어려웠다.<br/> 그래서 관점을 바꿔, 데이터가 흐르는 전 과정을 처음부터 다시 추적해보기로 했다.<br/><br/>
 그 과정에서 기업 가입 시 기본 업종과 기업 규모를 자동으로 INSERT하는 로직이 팀원에 의해 추가되었다는 사실을 확인했다.
 기존에는 값이 없는 상태에서 INSERT만 하면 되었지만, 이제는 기본값이 이미 존재하기 때문에 INSERT 대신 UPDATE로 처리해야 했다.<br/><br/>
 해당 부분을 UPDATE로 수정한 뒤에는 에러 없이 정상적으로 작동하는 것을 확인할 수 있었다.
