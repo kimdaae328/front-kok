@@ -7,15 +7,7 @@
     업무의 공백을 기회로 바꾸고 사람의 가능성을 연결한다.</p>
     <h2>2. 개발 기간</h2>
     <p>2025. 09. 24 ~ 2025. 10. 20</p>
-    <h2>3. 맴버구성 - 백엔드 업무</h2>
-    <ul>
-        <li>팀장 : 정은유 - 체험공고, 인턴공고, 마이페이지, 체험자 평가</li>
-        <li>부팀장 : 김신영 - 회원가입, 로그인, 메인</li>
-        <li>팀원1 : 김다애 - 기업콘솔</li>
-        <li>팀원2 : 정희준 - 기업목록, 커뮤니티</li>
-        <li>팀원3 : 성윤미 - 관리자</li>
-    </ul>
-    <h2>4. 기획 배경</h2>
+    <h2>3. 기획 배경</h2>
 <img width="1280" height="720" alt="슬라이드2" src="https://github.com/user-attachments/assets/3ea201b8-3b9e-43d1-944f-2f9aeadef5a7" />
     <p>많은 청년들이 취업을 준비하면서도 실제 업무 환경을 경험할 기회가 부족하다.
     이로 인해 경력보다 경험이 중요한 시대에 ‘준비된 인재’로 성장하기 어렵다는 한계가 존재한다.
@@ -26,7 +18,7 @@
     체험을 마친 청년은 평가를 통해 인턴으로 연계되며,
     기업은 그 과정을 통해 브랜딩과 인재 발굴 효과를 함께 얻는다.
     KOK는 청년에게는 경험의 기회, 기업에게는 브랜드의 기회, 그리고 사회에는 연결의 가치를 만들어가는 플랫폼이다.</p>
-    <h2>5. 기대효과</h2>
+    <h2>4. 기대효과</h2>
     <img width="1280" height="720" alt="슬라이드4" src="https://github.com/user-attachments/assets/a647b4d3-cfb7-4a85-9c57-1c42d991c067" />
     <br/>
     <br/>
@@ -222,15 +214,16 @@
     <div>
       <img width="100%" height="auto" alt="프론트 백엔드 진행률" src="https://github.com/user-attachments/assets/aafe8f75-c2c2-49af-a3a1-684bce05e791" />
     </div>
-    <h2>트러블 슈팅</h2>
+    <h2>8. 트러블 슈팅</h2>
     <h3>필수값 누락으로 DB 삽입 실패</h3>
-    <strong>문제 상황</strong>
-    <p>체험 공고 등록 기능을 구현하는 과정에서, 직군 선택을 하지 않은 상태로 등록 버튼을 누르면 데이터베이스에 insert가 실패하는 문제가 발생했다. 오류 로그를 확인해보니 job_category 값이 0으로 들어가면서 문제가 생기고 있었다.<br/> 문제의 원인은 직군 선택 기능이 기본 <select> 태그가 아니라 커스텀 UI로 구현되어 있었다는 점이었다. 화면에서는 직군명이 바뀌기 때문에 사용자가 선택한 것처럼 보였지만, 실제 서버로 전송되는 값은 비어있는 상태로 submit 되었고, 결국 DB에서 존재하지 않는 값으로 간주되어 오류가 발생했다.</p>
+    <strong>▶ 문제 상황</strong>
+    <p>체험 공고 등록 기능을 구현하는 과정에서, 직군 선택을 하지 않은 상태로 등록 버튼을 누르면 데이터베이스에 insert가 실패하는 문제가 발생했다. 오류 로그를 확인해보니 job_category 값이 0으로 들어가면서 문제가 생기고 있었다. 문제의 원인은 직군 선택 기능이 기본 select태그가 아니라 커스텀 UI로 구현되어 있었다는 점이었다. 화면에서는 직군명이 바뀌기 때문에 사용자가 선택한 것처럼 보였지만, 실제 서버로 전송되는 값은 비어있는 상태로 submit 되었고, 결국 DB에서 존재하지 않는 값으로 간주되어 오류가 발생했다.</p>
   <div>
     <img width="100%" height="auto" alt="5 값전달오류문제점" src="https://github.com/user-attachments/assets/33601c36-0d42-4e74-904e-5c625ee39d8c" />
     <img width="100%" height="auto" alt="5 값전달오류문제점2" src="https://github.com/user-attachments/assets/b220a128-153a-4f44-9002-c4516e9df5bd" />
   </div>
-    <strong>해결방법</strong>
+  <br/>
+    <strong>▶ 해결방법</strong>
     <p>문제를 해결하기 위해 드롭다운에서 직군을 클릭하는 순간, 해당 ID 값을 hidden input에 직접 넣어주도록 자바스크립트를 수정했다. 또한 폼 제출 직전에 직군 선택 값이 유효한지 다시 검증하는 로직을 추가하여, 값이 없는 상태에서는 제출 자체가 되지 않도록 방어 로직을 구성했다.</p>
     <p>이 과정을 통해, 커스텀 UI를 사용할 때는 단순히 화면에 보이는 값만 신경 쓰는 것이 아니라, 실제 서버로 어떤 데이터가 전송되는지를 반드시 확인해야 한다는 점을 다시 한 번 깨달을 수 있었다. 프론트와 백엔드 모두에서 검증을 확실하게 해두어야 안정적인 시스템을 만들 수 있다는 좋은 경험이 되었다.</p>
     <div>
@@ -238,7 +231,7 @@
       <img width="100%" height="auto" alt="5 값전달오류문제해결2" src="https://github.com/user-attachments/assets/b4451cc2-5de0-4879-854a-9e083f7d0245" />
     </div>
     <h3>insert, update 소통 부재로 인한 오류</h3>
-    <strong>문제 상황</strong>
+    <strong>▶ 문제 상황</strong>
     <p>문제 없이 정상 동작하던 기능에서 갑자기 에러가 발생해 당황스러웠다. <br/>기업 프로필 수정 화면에서 업종과 기업 규모를 선택하고 저장하면 DB의 기존 값을 갱신(UPDATE)하는 구조였고, 관련된 updateCompanySector() 메서드 역시 정상적으로 존재했다. <br/>
         그런데 실행 시 “updateCompanySector를 찾을 수 없다” 라는 이해하기 어려운 오류가 발생했다. 메서드는 분명히 잘 있는데 왜 못 찾는다는 걸까? 추적 과정에서 알게 된 진짜 원인은 팀원과의 작업 충돌이었다.<br/>
         다른 팀원이 회원가입 시 기본 업종/규모 값이 자동으로 INSERT되도록 수정해두었고, 이로 인해 기업 프로필 수정 단계에서 DB에 이미 값이 존재하는데 또다시 INSERT가 일어나며 제약조건 충돌이 발생한 것이었다. 즉, “없는 값을 수정한다”는 전제를 둔 기존 로직이 “이미 값이 존재하는 상황”과 맞지
@@ -249,7 +242,7 @@
         <img width="100%" height="auto" alt="3 insert문제-소통의부재3" src="https://github.com/user-attachments/assets/4b788c8a-9ee2-43cb-892d-1437766903f7" />
     </div>
     <br/>
-    <strong>해결방법</strong>
+    <strong>▶ 해결방법</strong>
     <p>에러 메시지만 보면 updateCompanySector() 메서드에서 문제가 발생한 것처럼 보여서 해당 부분을 집중적으로 확인했지만, 원인을 쉽게 찾기 어려웠다.<br/> 그래서 관점을 바꿔, 데이터가 흐르는 전 과정을 처음부터 다시 추적해보기로 했다.<br/><br/>
 그 과정에서 기업 가입 시 기본 업종과 기업 규모를 자동으로 INSERT하는 로직이 팀원에 의해 추가되었다는 사실을 확인했다.
 기존에는 값이 없는 상태에서 INSERT만 하면 되었지만, 이제는 기본값이 이미 존재하기 때문에 INSERT 대신 UPDATE로 처리해야 했다.<br/><br/>
@@ -259,28 +252,40 @@
 단순히 기술적인 실수가 아닌, 협업 과정의 작은 소통 누락도 큰 문제를 만들 수 있다는 점을 깨달았다.
 또한 데이터가 어떤 흐름과 방식으로 생성되고 변경되는지 처음부터 끝까지 이해하는 것이 얼마나 중요한지 직접 느낀 사례였다.</p>
 <div>
-    <img width="1534" height="784" alt="3 insert문제-소통의부재-문제해결" src="https://github.com/user-attachments/assets/7ff711c4-ed72-4463-bfae-0db0096c5f4a" />
+    <img width="100%" height="auto" alt="3 insert문제-소통의부재-문제해결" src="https://github.com/user-attachments/assets/7ff711c4-ed72-4463-bfae-0db0096c5f4a" />
 </div>
+    <h3>지원자 이력서 다중 다운로드 문제 해결</h3>
+    <strong>▶ 문제 상황</strong>
+    <p>지원자 이력서를 여러 명 선택해서 다운로드하는 기능을 구현하던 중, 하나의 URL을 다운로드하는 것까지는 아무 문제가 없었다. <br/>하지만 두 개 이상을 동시에 다운로드하려고 하면 첫 번째 파일은 정상적으로 다운로드되지만, 두 번째 파일부터는 브라우저가 새로고침되거나 다운로드가 차단되는 현상이 발생했다.</p>
+    <p>초기 구현 당시에는, 사용자가 선택한 파일을 각 presigned URL로 직접 다운로드하도록 window.open() 또는 location.href를 사용했다. 하나의 파일을 다운로드할 때는 문제가 없었기 때문에, 같은 방식으로 여러 파일을 연속 다운로드하는 것도 괜찮을 것이라고 생각했다.<br/> 하지만 실제로 기능을 테스트해보니, 첫 번째 파일이 다운로드되는 순간 브라우저가 새 탭을 열고 페이지를 새로고침해버렸다.</p>
+  <div>
+    <img width="100%" height="auto" alt="4 zip문제" src="https://github.com/user-attachments/assets/d9f5bd09-74c2-4df3-9256-6746f04a03a6" />
+  </div>
+  <br/>
+    <strong>▶ 해결방법</strong>
+    <p>이 문제를 해결하기 위해서는 완전히 다른 접근이 필요했다. 여러 해결 방안을 찾은 끝에, 다운로드 요청을 파일마다 반복적으로 보내는 대신, 모든 파일을 한 번에 처리할 수 있는 단일 다운로드 흐름으로 구조를 변경하는 것이 가장 안정적인 방법이라는 결론에 도달했다.<br/>서버에서는 받은 presigned URL을 프론트에서 Blob 형태로 데이터를 준비했다. 이후 JSZip 라이브러리를 이용해 이 파일들을 하나의 ZIP 파일로 압축하고, 마지막에 a태그를 동적으로 생성해 사용자가 한 번의 클릭으로 ZIP 파일을 다운로드할 수 있도록 처리했다.<br/>이 방식으로 바꾼 순간, 기존에 발생했던 문제들이 모두 사라졌다.<br/>다운로드 도중 새 탭이 열리거나 화면이 깜빡이는 일이 없었고, 사용자는 여러 파일을 한 번에 안정적이고 깔끔하게 다운로드할 수 있어 서비스 사용 경험이 크게 개선되었다. 이 방법은 파일의 개수가 늘어나더라도 동일한 구조로 할 수 있기 때문에, 추후 더 많은 파일을 처리해야 하는 상황이 오더라도 변경 없이 그대로 적용할 수 있다는 장점도 있었다. 즉, 단순한 문제 해결을 넘어서, 더 유연하고 유지보수가 쉬운 구조로 발전할 수 있었다는 의미가 있었다.</p>
+    <div>
+      <img width="100%" height="auto" alt="4 zip문제해결" src="https://github.com/user-attachments/assets/79a53b34-132d-4533-9913-94bdfab57190" />
+    </div>
     <h3>companyId를 노출문제</h3>
-    <strong>문제 상황</strong>
+    <strong>▶ 문제 상황</strong>
     <p>기존에는 쿼리스트링으로 작업하면서 기업 아이디가 노출되는 보안 문제가 발생했다.</p>
     <div>
       <img width="100%" height="auto" alt="2 companyId 노출 문제(수정)" src="https://github.com/user-attachments/assets/4bad24bf-970f-443a-92fd-b8286e57f13e" />
     </div>
-    <strong>해결방법</strong>
+    <strong>▶ 해결방법</strong>
     <p>이를 해결하기 위해 처음에는 데이터를 body에 담아 전송하는 방법을 고려했으나, 결국 화면에서 아이디를 전달받는 방식 대신, 컨트롤러에서 직접 인증 정보(CustomUserDetails)를 주입받는 방식이 더 안전하고 구조적으로 깔끔하다는 점을 깨달았다.</p>
     <div>
       <img width="100%" height="auto" alt="2 companyId 노출 문제 해결(수정)" src="https://github.com/user-attachments/assets/09a83249-a27a-4222-9503-cf10ff7fc2a4" />
     </div>
-    <br/>
     <h3>API 기반 페이지를 Thymeleaf 동기 방식으로 전환한 구조 개선</h3>
-    <strong>문제 상황</strong>
+    <strong>▶ 문제 상황</strong>
     <p>초기에는 화면 등록 및 수정 기능을 API(fetch 기반 비동기 통신) 방식으로 구현했다.
 하지만 실제 화면을 완성해보니, 해당 페이지는 화면 갱신이 잦지 않고 인증된 사용자만 접근하는 영역이었다.
-따라서 굳이 REST API를 유지하기보다, Spring MVC + Thymeleaf의 동기 처리 방식으로 구성하는 것이
+따라서 굳이 REST API를 유지하기보다, Thymeleaf의 동기 처리 방식으로 구성하는 것이
 보안과 유지보수 측면에서 더 적합하다고 판단했다.</p>
     <div><img width="100%" height="auto" alt="공고등록, 수정 부분 리팩토링 문제" src="https://github.com/user-attachments/assets/fde32110-f209-47dc-9a74-b2b18268f950" /></div>
-    <strong>해결방법</strong>
+    <strong>▶ 해결방법</strong>
     <ul>
         <li>컨트롤러를 REST API가 아닌 View Controller 형태로 변경</li>
         <li>등록/수정 후에는 리다이렉트 방식으로 흐름 제어하여 사용자 경험 단순화</li>
@@ -288,7 +293,11 @@
     </ul>
     <div><img width="100%" height="auto" alt="공고등록, 수정 부분 리팩토링 문제" src="https://github.com/user-attachments/assets/9528bb1f-b384-44af-860b-80d7e7910dd5" /></div>
     <br/>
-    <h3>느낀점</h3>
+    <h3>9. QA 테스트</h3>
+    <div>
+      <img width="100%" height="auto" alt="스크린샷 2025-10-30 025313" src="https://github.com/user-attachments/assets/a657c3a0-a7d9-4eec-a46e-5fa0ae068f3d" />
+    </div>
+    <h3>10. 느낀점</h3>
     <p>AWS S3 업로드, Bootpay 결제 연동, Redis 캐싱, 스케줄러 자동 상태 변경 등
 단순한 CRUD를 넘어서 “실제 운영 중인 서비스가 어떻게 돌아가는지”를 직접 체감했다.
 특히 캐시 적용 후 데이터 수정 시 캐시 무효화(@CacheEvict)의 중요성을 이해했고,
