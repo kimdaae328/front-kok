@@ -28,6 +28,8 @@
     KOK는 청년에게는 경험의 기회, 기업에게는 브랜드의 기회, 그리고 사회에는 연결의 가치를 만들어가는 플랫폼이다.</p>
     <h2>5. 기대효과</h2>
     <img width="1280" height="720" alt="슬라이드4" src="https://github.com/user-attachments/assets/a647b4d3-cfb7-4a85-9c57-1c42d991c067" />
+    <br/>
+    <br/>
     <strong>청년에게 새로운 직무 체험 기회를 제공</strong>
     <ul>
         <li>실제 기업의 업무 환경을 직접 경험하며, 자신에게 맞는 직무나 산업을 탐색할 수 있다.</li>
@@ -45,7 +47,6 @@
         <li>공백 인력을 단순히 대체하는 것이 아니라, 청년의 경험 기회로 전환하여 상호 이익의 순환 구조를 만든다.</li>
         <li>기업, 청년, 사회가 함께 참여하는 새로운 형태의 고용 문화가 확산된다.</li>
     </ul>
-    <strong>"KOK는 청년에게는 ‘체험의 기회’를, 기업에게는 ‘브랜딩의 기회’를, 사회에는 ‘연결의 가치’를 만든다."</strong>
     <h2>5. 개발환경</h2>
     <ul>
         <li>Java</li>
@@ -233,6 +234,7 @@
         <img width="1288" height="632" alt="3 insert문제-소통의부재2" src="https://github.com/user-attachments/assets/4e8fa94a-b699-49af-b189-3c8305d11efd" />
         <img width="1576" height="709" alt="3 insert문제-소통의부재3" src="https://github.com/user-attachments/assets/4b788c8a-9ee2-43cb-892d-1437766903f7" />
     </div>
+    <br/>
     <strong>해결방법</strong>
     <p>에러 메시지만 보면 updateCompanySector() 메서드에서 문제가 발생한 것처럼 보여서 해당 부분을 집중적으로 확인했지만, 원인을 쉽게 찾기 어려웠다.<br/>
 그래서 관점을 바꿔, 데이터가 흐르는 전 과정을 처음부터 다시 추적해보기로 했다.<br/><br/>
