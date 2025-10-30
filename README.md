@@ -294,6 +294,7 @@
     <div><img width="100%" height="auto" alt="공고등록, 수정 부분 리팩토링 문제" src="https://github.com/user-attachments/assets/9528bb1f-b384-44af-860b-80d7e7910dd5" /></div>
     <br/>
     <h3>9. QA 테스트</h3>
+    <p>실제 서비스 기능 검증을 위해 각 기능별 QA 테스트를 진행했다. 주요 검증 항목은 입력값 유효성, 비정상 시나리오 대응, 예외처리, UI 동작 일관성, 데이터 저장 검증 등이었으며, 테스트 중 발견된 문제들은 수정 후 재확인 과정을 거쳐 안정성을 확보했다.</p>
     <div>
       <img width="100%" height="auto" alt="스크린샷 2025-10-30 025313" src="https://github.com/user-attachments/assets/a657c3a0-a7d9-4eec-a46e-5fa0ae068f3d" />
     </div>
