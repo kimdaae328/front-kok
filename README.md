@@ -42,7 +42,7 @@
     <h2>5. 개발환경</h2>
     <ul>
         <li>Java</li>
-        <li>Java Spring Data</li>
+        <li>JSrping Security</li>
         <li>Thymeleaf</li>
         <li>QueryDSL</li>
         <li>Spring Boot</li>
